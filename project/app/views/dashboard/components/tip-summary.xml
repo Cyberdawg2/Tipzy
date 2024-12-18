@@ -1,0 +1,15 @@
+<StackLayout class="bg-white p-4 rounded-lg shadow-md mb-4">
+    <Label text="Today's Tips" class="text-lg font-bold" />
+    <Label text="{{ formattedDaily }}" class="text-2xl text-green-600" />
+    
+    <GridLayout columns="*, *" class="mt-2">
+        <StackLayout col="0">
+            <Label text="This Week" class="text-sm text-gray-600" />
+            <Label text="{{ formattedWeekly }}" class="text-lg" />
+        </StackLayout>
+        <StackLayout col="1">
+            <Label text="This Month" class="text-sm text-gray-600" />
+            <Label text="{{ formattedMonthly }}" class="text-lg" />
+        </StackLayout>
+    </GridLayout>
+</StackLayout>

@@ -1,0 +1,5 @@
+<Frame defaultPage="views/login/login-page">
+  <Frame.actionBar>
+    <ActionBar title="TipEase" icon="" />
+  </Frame.actionBar>
+</Frame>

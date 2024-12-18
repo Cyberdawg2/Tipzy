@@ -1,0 +1,44 @@
+<Page xmlns="http://schemas.nativescript.org/tns.xsd" navigatingTo="onNavigatingTo" class="page">
+    <ActionBar title="Employee Dashboard" class="action-bar">
+        <ActionItem tap="{{ onLogout }}" ios.position="right" android.position="actionBar">
+            <Label text="Logout" class="action-item" />
+        </ActionItem>
+    </ActionBar>
+    
+    <GridLayout rows="auto, *, auto" class="p-4">
+        <!-- Tip Summary -->
+        <StackLayout row="0" class="bg-white p-4 rounded-lg shadow-md mb-4">
+            <Label text="Today's Tips" class="text-lg font-bold" />
+            <Label text="{{ dailyTips | currency }}" class="text-2xl text-green-600" />
+            
+            <GridLayout columns="*, *" class="mt-2">
+                <StackLayout col="0">
+                    <Label text="This Week" class="text-sm text-gray-600" />
+                    <Label text="{{ weeklyTips | currency }}" class="text-lg" />
+                </StackLayout>
+                <StackLayout col="1">
+                    <Label text="This Month" class="text-sm text-gray-600" />
+                    <Label text="{{ monthlyTips | currency }}" class="text-lg" />
+                </StackLayout>
+            </GridLayout>
+        </StackLayout>
+
+        <!-- Recent Tips List -->
+        <ListView row="1" items="{{ recentTips }}" class="list-group">
+            <ListView.itemTemplate>
+                <GridLayout columns="*, auto" class="list-group-item p-2">
+                    <StackLayout col="0">
+                        <Label text="{{ timestamp | date }}" class="text-sm text-gray-600" />
+                        <Label text="{{ amount | currency }}" class="text-lg" />
+                    </StackLayout>
+                    <Label col="1" text="{{ status }}" class="text-sm" 
+                           class="{{ status === 'completed' ? 'text-green-600' : 'text-orange-600' }}" />
+                </GridLayout>
+            </ListView.itemTemplate>
+        </ListView>
+
+        <!-- QR Code Button -->
+        <Button row="2" text="Show My QR Code" tap="{{ showQRCode }}" 
+                class="btn btn-primary p-4 rounded-lg bg-blue-500 text-white" />
+    </GridLayout>
+</Page>
